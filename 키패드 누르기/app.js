@@ -1,30 +1,34 @@
+const getDistance = () => {
+
+}
+
 function solution(numbers, hand) {
     let answer = '';
     let left = '';
     let right = '';
 
     for(let i=0; i<numbers.length; i++){
-        if(numbers[i] === 1 && 4 && 7){
+        if(numbers[i] === 1 || numbers[i] === 4 || numbers[i] === 7){
             answer += 'L';
             left = numbers[i];
         }
-        else if(numbers[i] === 3 && 6 && 9){
+        else if(numbers[i] === 3 || numbers[i] === 6 || numbers[i] === 9){
             answer += 'R';
             right = numbers[i];
         }
         else
-            if(Math.abs(numbers[i]-left) < Math.abs(numbers[i]-right)){
-                answer += 'L'
+            var leftDistance = getDistance();
+            var rightDistance = getDistance();
+            if(leftDistance > rightDistance){
+                if(hand === " right"){
+                    answer += 'R';
+                }
+                else {
+                    answer += 'L';
+                }
             }
-            else if(Math.abs(numbers[i]-left) > Math.abs(numbers[i]-right)){
-                answer += 'R'
-            }
-            else {
-                if(hand === 'right')
-                    answer += 'R'
-                else
-                    answer += 'L'
-            }
+
+
     }
     console.log(answer);
     return answer;
