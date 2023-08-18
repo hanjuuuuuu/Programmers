@@ -6,13 +6,12 @@ function solution(people, limit) {
     var min = 0;
     var max = people.length - 1;
     if (people[min] + people[max] <= limit) {
-      answer += 1;
-      people.splice(max, 1);
+      people.pop();
       people.splice(min, 1);
     } else {
-      answer += 1;
-      people.splice(max, 1);
+      people.pop();
     }
+    answer += 1;
   }
   return answer;
 }
